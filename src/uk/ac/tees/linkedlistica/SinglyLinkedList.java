@@ -6,9 +6,7 @@ package uk.ac.tees.linkedlistica;
  * @author Your Name (X0000000@tees.ac.uk)
  * @author Annalisa Occhipinti (a.occhipinti@tees.ac.uk)
  */
-
 // Hello World
-
 public class SinglyLinkedList {
 
     /**
@@ -122,35 +120,35 @@ public class SinglyLinkedList {
      * @return true on successful insert, otherwise false
      */
     public boolean addAtPos(int obj, int index) {
-        
+
         ListNode node = new ListNode();
         node.data = obj;
         node.next = null;
-        
-        if(this.head == null){
-            if (index != 0){
+
+        if (this.head == null) {
+            if (index != 0) {
                 return false;
-            }else{
+            } else {
                 this.head = null;
             }
         }
-        
-        if(head != null && index == 0){
+
+        if (head != null && index == 0) {
             node.next = this.head;
             this.head = node;
             return false;
         }
-        
+
         ListNode current = this.head;
         ListNode previous = null;
-        
+
         int i = 0;
-        
-        while(i< index){
+
+        while (i < index) {
             previous = current;
             current = current.next;
-            
-            if(current == null){
+
+            if (current == null) {
                 return false;
             }
             i++;
@@ -159,33 +157,28 @@ public class SinglyLinkedList {
         previous.next = node;
         return true;
     }
+
     /**
      * Appends a singly linked list to this circular linked list.
      *
      * @param list the singly linked list to append
-     * 
-     * NEEDS COMPLETING 
-     * 
+     *
+     * NEEDS COMPLETING
+     *
      */
     public void appendSinglyLinkedList(SinglyLinkedList list) {
-        
+
         ListNode newNode = new ListNode();
+
+        int[] value = new int[]{1, 3, 5};
         
-        int[] value = new int[] {1,3,5};
-        
-        ListNode last = head;
-        
-        while (last != null){
-            last = last.next;
-            if(last == null){
-                last.next = newNode;
-            }
-            
-            
+        int i = 0;
+
+        while (list.head != null) {
+
         }
     }
-    
-    
+
     /**
      * Returns the sum of all integers in the list.
      *
@@ -193,14 +186,14 @@ public class SinglyLinkedList {
      */
     public int sum() {
         int total = head.data;
-        
+
         ListNode last = head;
-        
-        while(last.next != null){
+
+        while (last.next != null) {
             last = last.next;
             total += last.data;
         }
-        
+
         return total;
     }
 }
