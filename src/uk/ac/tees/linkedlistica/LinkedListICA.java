@@ -2,6 +2,7 @@ package uk.ac.tees.linkedlistica;
 
 /**
  * The project main class (intentionally empty).
+ *
  * @author Shane Robertson (B1106857@tees.ac.uk)
  * @author Saul Johnson (saul.johnson@tees.ac.uk)
  * @author Annalisa Occhipinti (a.occhipinti@tees.ac.uk)
@@ -11,6 +12,7 @@ public class LinkedListICA {
 
     /**
      * The entry point for your program.
+     *
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -18,5 +20,9 @@ public class LinkedListICA {
          * code using the unit tests provided, and/or write your own if you're
          * feeling up to it. You may also write code here to test your ADTs.
          */
+        
+        CircularLinkedList list = new CircularLinkedList(new int[] {2, 3, 6, 8, 9, 11, 14});
+        
+        System.out.println(list.deleteMultiplesOfThree());
     }
 }

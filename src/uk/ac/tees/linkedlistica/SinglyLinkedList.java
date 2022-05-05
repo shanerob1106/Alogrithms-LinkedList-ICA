@@ -58,14 +58,14 @@ public class SinglyLinkedList {
      */
     public int getAtPos(int index) {
 
-        ListNode temp = head;
+        ListNode current = head;
         int count = 0;
-        while (temp != null) {
+        while (current != null) {
             if (count == index) {
-                return temp.data;
+                return current.data;
             }
             count++;
-            temp = temp.next;
+            current = current.next;
         }
         if (count != index) {
             return 999;
@@ -169,13 +169,16 @@ public class SinglyLinkedList {
     public void appendSinglyLinkedList(SinglyLinkedList list) {
 
         ListNode newNode = new ListNode();
+        ListNode first = list.head;
 
         int[] value = new int[]{1, 3, 5};
-        
-        int i = 0;
 
-        while (list.head != null) {
+        while (first.next != null) {
+            first = first.next;
+        }
 
+        for(int i : value){
+            
         }
     }
 

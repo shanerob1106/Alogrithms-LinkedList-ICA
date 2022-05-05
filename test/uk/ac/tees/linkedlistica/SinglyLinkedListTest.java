@@ -130,8 +130,8 @@ public class SinglyLinkedListTest {
     
     @Test
     public void testAppendSinglyLinkedList(){
-        SinglyLinkedList instance = new SinglyLinkedList();
-
+        SinglyLinkedList instance = new SinglyLinkedList(new int[] {2,4,6});
+        
         instance.appendSinglyLinkedList(instance);
         
         assertArrayEquals(new int[] {2, 4, 6, 1, 3, 5}, singlyLinkedListToArray(instance));

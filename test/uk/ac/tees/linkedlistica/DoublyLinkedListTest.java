@@ -9,34 +9,35 @@ import static org.junit.Assert.*;
 
 /**
  * A suite of unit tests for the {@link DoublyLinkedList} class.
+ *
  * @author Annalisa Occhipinti (a.occhipinti@tees.ac.uk)
  */
 public class DoublyLinkedListTest {
-    
+
     public DoublyLinkedListTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-        
+
     /**
      * Converts a doubly linked list to an array.
-     * 
-     * @param list  the list to convert
-     * @return      the converted list
+     *
+     * @param list the list to convert
+     * @return the converted list
      */
     private static int[] doublyLinkedListToArray(DoublyLinkedList list) {
         // Gauge size.
@@ -60,25 +61,25 @@ public class DoublyLinkedListTest {
     /**
      * Test of getSize method, of class DoublyLinkedList.
      */
-//    @Test
-//    public void testGetSize() {
-//        // Create instance of size 3.
-//        DoublyLinkedList instance = new DoublyLinkedList(new int[] {2, 4, 6});
-//        // Compare to expected.
-//        assertEquals("List size should be returned correctly.", 3, 
-//                instance.getSize());
-//    }
+    @Test
+    public void testGetSize() {
+        // Create instance of size 3.
+        DoublyLinkedList instance = new DoublyLinkedList(new int[]{2, 4, 6});
+        // Compare to expected.
+        assertEquals("List size should be returned correctly.", 3,
+                instance.getSize());
+    }
 
     /**
      * Test of getLast method, of class DoublyLinkedList.
      */
-//    @Test
-//    public void testGetLast() {
-//        // Create instance.
-//        DoublyLinkedList instance = new DoublyLinkedList(new int[] {7, 3, 6});
-//        // Compare to expected.
-//        assertEquals("Last item should be retrieved.", 6, instance.getLast());
-//    }
+    @Test
+    public void testGetLast() {
+        // Create instance.
+        DoublyLinkedList instance = new DoublyLinkedList(new int[]{7, 3, 6});
+        // Compare to expected.
+        assertEquals("Last item should be retrieved.", 6, instance.getLast());
+    }
 
     /**
      * Test of deleteAllNodesWithValue method, of class DoublyLinkedList.
@@ -100,37 +101,61 @@ public class DoublyLinkedListTest {
 //        assertArrayEquals("Items should be correctly deleted.", 
 //                new int[] {8}, doublyLinkedListToArray(instance));
 //    }
-
     /**
      * Test of deleteAtPos method, of class DoublyLinkedList.
      */
-//    @Test
-//    public void testDeleteAtPos() {
-//        // Create instance.
-//        DoublyLinkedList instance = new DoublyLinkedList(new int[] {7, 2, 6, 3});
-//        boolean success = instance.deleteAtPos(1);
-//        assertTrue("True should return on successful delete.", success);
-//        boolean failure = instance.deleteAtPos(99);
-//        assertFalse("False should return on unsuccessful delete.", failure);
-//        // Compare to expected.
-//        assertArrayEquals("List should be correctly reversed.", 
-//                new int[] {7, 6, 3}, doublyLinkedListToArray(instance));
-//    }
-    
-     /**
+    @Test
+    public void testDeleteAtPos() {
+        // Create instance.
+        DoublyLinkedList instance = new DoublyLinkedList(new int[]{7, 2, 6, 3});
+        boolean success = instance.deleteAtPos(1);
+        assertTrue("True should return on successful delete.", success);
+        boolean failure = instance.deleteAtPos(99);
+        assertFalse("False should return on unsuccessful delete.", failure);
+        // Compare to expected.
+        assertArrayEquals("List should be correctly reversed.",
+                new int[]{7, 6, 3}, doublyLinkedListToArray(instance));
+    }
+
+    /**
      * Test of evenNodes method
      */
+    @Test
+    public void testEvenNodes() {
+        // Create instance, insert 3 and 6 after first and second index.
+        DoublyLinkedList instance = new DoublyLinkedList(
+                new int[]{2, 4, 7, 10});
+        // Compare to expected.
+        assertEquals("Items should be correctly counted.",
+                3, instance.evenNodes());
+    }
+
 //    @Test
-//    public void testEvenNodes() {
-//        // Create instance, insert 3 and 6 after first and second index.
+//    public void testDeleteSecond() {
+//
+//        // Create instance.
 //        DoublyLinkedList instance = new DoublyLinkedList(
-//                new int[] {2, 4, 7, 10});
+//                new int[]{3, 5, 7, 9});
+//
+//        boolean success = instance.deleteSecond();
+//        assertTrue("True should be return on successful delete.", success);
+//
+//        boolean failure = instance.deleteSecond();
+//        assertFalse("False should be returned on unsuccessful delete.", failure);
+//
 //        // Compare to expected.
-//        assertEquals("Items should be correctly counted.", 
-//                3, instance.evenNodes());
+//        assertArrayEquals("Second item should be removed",
+//                new int[]{3, 7, 9}, doublyLinkedListToArray(instance));
 //    }
     
-
-    
-    
+    @Test
+    public void testAddSecondLast() {
+        DoublyLinkedList instance = new DoublyLinkedList(
+                new int[]{1, 2, 3, 5});
+        
+        instance.addSecondLast(4);
+        
+        assertArrayEquals("Array should add to the second to last element",
+                new int[]{1, 2, 3, 4, 5}, doublyLinkedListToArray(instance));
+    }
 }
