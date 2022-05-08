@@ -74,22 +74,45 @@ public class DoublyLinkedList {
      * @param obj the value
      * @return the number of nodes deleted
      */
-//    public int deleteAllNodesWithValue(int obj) {
+    public int deleteAllNodesWithValue(int obj) {
+
+//        if (head == null) return false;
 //        
-//        DoublyLinkedListNode current = head;
-//        int nodeDeleted = 0;
+//        DoublyLinkedListNode toDel = head.next;
+//        if (toDel == null) return false;
 //        
-//        while (current.next != null) {
-//            if (current.data == obj) {
-//                nodeDeleted++;
-//                current.next = current.next.next;
-//                current = current.next;
-//                current.prev = current.prev.prev;
-//            }
-//            current = current.next;
+//        head.next = toDel.next;
+//        if (head.next != null) head.next.prev = head;
+//        toDel.next = null;
+//        toDel.prev = null;
+//        return true;
+        int rlt = 0;
+//        if (head == null) {
+//            return 0;
 //        }
-//        return nodeDeleted;
-//    }
+//
+        DoublyLinkedListNode toDel = head.next;
+//        if (toDel == null) {
+//            return 0;
+//        }
+        
+        while(head.next != null){
+            head = head.next;
+        }
+        
+        if (head.data == obj) {
+            head.next = toDel.next;
+            if (head.next != null) {
+                head.next.prev = head;
+            }
+            toDel.next = null;
+            toDel.prev = null;
+            rlt++;
+        }
+
+        return rlt;
+    }
+
     /**
      * Deletes the node in the list at the specified index.
      *
@@ -139,17 +162,25 @@ public class DoublyLinkedList {
      *
      * @return true if successful, false if there is no second node in the list
      */
-//    public boolean deleteSecond() {
-//
-//        DoublyLinkedListNode current = head;
-//        if (head.next == null) {
-//            return false;
-//        } else {
-//            current.next = current.prev.prev.prev;
-//            current = current.next;
-//            return true;
-//        }
-//    }
+    public boolean deleteSecond() {
+
+        if (head == null) {
+            return false;
+        }
+
+        DoublyLinkedListNode toDel = head.next;
+        if (toDel == null) {
+            return false;
+        }
+
+        head.next = toDel.next;
+        if (head.next != null) {
+            head.next.prev = head;
+        }
+        toDel.next = null;
+        toDel.prev = null;
+        return true;
+    }
 
     /**
      * Adds an item to the end of the list.
@@ -157,20 +188,29 @@ public class DoublyLinkedList {
      * @param obj the item
      * @return true if successful, false if there is no
      */
-    public boolean addSecondLast(int obj) {
-        
-        DoublyLinkedListNode current = head;
-        DoublyLinkedListNode data = new DoublyLinkedListNode(obj);
-        
-        while(current.next != null){
-            current = current.next;
-            if(current.next == null){
-                
-                current.data = data.data;
-            }
+//    public boolean addSecondLast(int obj) {
+//        
+//        DoublyLinkedListNode current = head;
+//        DoublyLinkedListNode data = new DoublyLinkedListNode(obj);
+//        
+//        while(current.next != null){
+//            current = current.next;
+//            if(current.next == null){
+//                
+//                current.data = data.data;
+//            }
+//        }
+//        
+//        return false;
+//    }
+    @Override
+    public String toString() {
+        String rlt = "";
+        DoublyLinkedListNode curr = head;
+        while (curr != null) {
+            rlt += curr.data + ", ";
+            curr = curr.next;
         }
-        
-        
-        return false;
+        return rlt;
     }
 }

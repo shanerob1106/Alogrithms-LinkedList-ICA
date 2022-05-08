@@ -20,9 +20,13 @@ public class LinkedListICA {
          * code using the unit tests provided, and/or write your own if you're
          * feeling up to it. You may also write code here to test your ADTs.
          */
+        DoublyLinkedList instance = new DoublyLinkedList(new int[] {3,5,6,7,8,9,11});
         
-        CircularLinkedList list = new CircularLinkedList(new int[] {2, 3, 6, 8, 9, 11, 14});
+        System.out.println(instance.toString());
         
-        System.out.println(list.deleteMultiplesOfThree());
+        System.out.println(instance.deleteAtPos(1));
+        
+        System.out.println(instance.toString());
+        
     }
 }

@@ -84,23 +84,36 @@ public class DoublyLinkedListTest {
     /**
      * Test of deleteAllNodesWithValue method, of class DoublyLinkedList.
      */
-//    @Test
-//    public void testDeleteAllNodesWithValue() {
-//        // Create instance, delete first node containing '3'.
-//        DoublyLinkedList instance = new DoublyLinkedList(new int[] {8, 3, 6, 3});
+    @Test
+    public void testDeleteAllNodesWithValue() {
+        // Create instance, delete first node containing '3'.
+        DoublyLinkedList instance = new DoublyLinkedList(new int[]{8, 3, 6, 3});
+        
+        
+//        System.out.println(instance.toString());
 //        int firstPass = instance.deleteAllNodesWithValue(3);
-//        assertEquals("Number of nodes deleted should be returned.", 2, 
+//        assertEquals("Number of nodes deleted should be returned.", 2,
 //                firstPass);
-//        int secondPass = instance.deleteAllNodesWithValue(6);
-//        assertEquals("Number of nodes deleted should be returned.", 1, 
-//                secondPass);
-//        int nullPass = instance.deleteAllNodesWithValue(99);
-//        assertEquals("Number of nodes deleted should be returned.", 0, 
-//                nullPass);
-//        // Compare to expected.
-//        assertArrayEquals("Items should be correctly deleted.", 
-//                new int[] {8}, doublyLinkedListToArray(instance));
-//    }
+        
+        
+        System.out.println(instance.toString());
+        int secondPass = instance.deleteAllNodesWithValue(6);
+        assertEquals("Number of nodes deleted should be returned.", 1,
+                secondPass);
+        
+        
+        System.out.println(instance.toString());
+        int nullPass = instance.deleteAllNodesWithValue(99);
+        assertEquals("Number of nodes deleted should be returned.", 0,
+                nullPass);
+        
+        
+        System.out.println(instance.toString());
+        // Compare to expected.
+        assertArrayEquals("Items should be correctly deleted.",
+                new int[]{8}, doublyLinkedListToArray(instance));
+    }
+
     /**
      * Test of deleteAtPos method, of class DoublyLinkedList.
      */
@@ -130,32 +143,33 @@ public class DoublyLinkedListTest {
                 3, instance.evenNodes());
     }
 
-//    @Test
-//    public void testDeleteSecond() {
-//
-//        // Create instance.
-//        DoublyLinkedList instance = new DoublyLinkedList(
-//                new int[]{3, 5, 7, 9});
-//
-//        boolean success = instance.deleteSecond();
-//        assertTrue("True should be return on successful delete.", success);
-//
-//        boolean failure = instance.deleteSecond();
-//        assertFalse("False should be returned on unsuccessful delete.", failure);
-//
-//        // Compare to expected.
-//        assertArrayEquals("Second item should be removed",
-//                new int[]{3, 7, 9}, doublyLinkedListToArray(instance));
-//    }
-    
     @Test
-    public void testAddSecondLast() {
+    public void testDeleteSecond() {
+
+        // Create instance.
         DoublyLinkedList instance = new DoublyLinkedList(
-                new int[]{1, 2, 3, 5});
-        
-        instance.addSecondLast(4);
-        
-        assertArrayEquals("Array should add to the second to last element",
-                new int[]{1, 2, 3, 4, 5}, doublyLinkedListToArray(instance));
+                new int[]{3, 5, 7, 9});
+        System.out.println(instance);
+
+        boolean success = instance.deleteSecond();
+        assertTrue("True should be return on successful delete.", success);
+        System.out.println(instance);
+
+        boolean failure = new DoublyLinkedList(new int[]{}).deleteSecond();
+        assertFalse("False should be returned on unsuccessful delete.", failure);
+        // Compare to expected.
+        assertArrayEquals("Second item should be removed",
+                new int[]{3, 7, 9}, doublyLinkedListToArray(instance));
     }
+
+//    @Test
+//    public void testAddSecondLast() {
+//        DoublyLinkedList instance = new DoublyLinkedList(
+//                new int[]{1, 2, 3, 5});
+//        
+//        instance.addSecondLast(4);
+//        
+//        assertArrayEquals("Array should add to the second to last element",
+//                new int[]{1, 2, 3, 4, 5}, doublyLinkedListToArray(instance));
+//    }
 }

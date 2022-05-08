@@ -1,5 +1,8 @@
 package uk.ac.tees.linkedlistica;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Represents a circular linked list.
  *
@@ -153,21 +156,21 @@ public class CircularLinkedList {
      */
     public int deleteMultiplesOfThree() {
 
-        int index = 0;
-        ListNode current = head;
-
-        ListNode temp = current.next;
-        int i = 0;
-
-        do {
-            index++;
-            current = current.next;
-            if (current.data % 3 == 0) {
-                i++;
-                
+        int rlt = 0;
+        
+        ListNode pre = head;
+        ListNode curr = head.next;
+        
+        while (curr != head) {
+            if (curr.data % 3 == 0) {
+                pre.next = curr.next;
+                curr.next = null;
+                curr = pre.next;
+                rlt++;
             }
-        } while (index != 7);
-
-        return i;
+            pre = curr;
+            curr = curr.next;
+        }
+        return rlt;
     }
 }
