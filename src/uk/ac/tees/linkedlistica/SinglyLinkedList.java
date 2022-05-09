@@ -6,7 +6,6 @@ package uk.ac.tees.linkedlistica;
  * @author Your Name (X0000000@tees.ac.uk)
  * @author Annalisa Occhipinti (a.occhipinti@tees.ac.uk)
  */
-// Hello World
 public class SinglyLinkedList {
 
     /**
@@ -166,21 +165,33 @@ public class SinglyLinkedList {
      * NEEDS COMPLETING
      *
      */
-    public void appendSinglyLinkedList(SinglyLinkedList list) {
-
-        ListNode newNode = new ListNode();
-        ListNode first = list.head;
-
-        int[] value = new int[]{1, 3, 5};
-
-        while (first.next != null) {
-            first = first.next;
-        }
-
-        for(int i : value){
-            
-        }
-    }
+//    public void appendSinglyLinkedList(SinglyLinkedList list) {
+//
+//        ListNode newNode = new ListNode(list);
+//        ListNode current = head;
+//        
+//        while(current.next != null){
+//            current = current.next;
+//            if(current.next == null){
+//                current.next = newNode;
+//            }
+//        }
+        
+        
+        
+//        ListNode newNode = new ListNode();
+//        ListNode first = list.head;
+//
+//        int[] value = new int[]{1, 3, 5};
+//
+//        while (first.next != null) {
+//            first = first.next;
+//        }
+//
+//        for(int i : value){
+//            
+//        }
+//    }
 
     /**
      * Returns the sum of all integers in the list.
@@ -199,4 +210,7 @@ public class SinglyLinkedList {
 
         return total;
     }
+    
+    
+    
 }

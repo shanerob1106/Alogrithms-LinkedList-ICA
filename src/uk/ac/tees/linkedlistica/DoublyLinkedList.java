@@ -75,39 +75,27 @@ public class DoublyLinkedList {
      * @return the number of nodes deleted
      */
     public int deleteAllNodesWithValue(int obj) {
-
-//        if (head == null) return false;
-//        
-//        DoublyLinkedListNode toDel = head.next;
-//        if (toDel == null) return false;
-//        
 //        head.next = toDel.next;
-//        if (head.next != null) head.next.prev = head;
+//        if (head.next != null) {
+//            head.next.prev = head;
+//        }
 //        toDel.next = null;
 //        toDel.prev = null;
-//        return true;
         int rlt = 0;
-//        if (head == null) {
-//            return 0;
-//        }
-//
-        DoublyLinkedListNode toDel = head.next;
-//        if (toDel == null) {
-//            return 0;
-//        }
-        
-        while(head.next != null){
-            head = head.next;
+
+        if (head == null) {
+            return 0;
         }
+
+        DoublyLinkedListNode current = head;
+        DoublyLinkedListNode toDel = current.next;
         
-        if (head.data == obj) {
-            head.next = toDel.next;
-            if (head.next != null) {
-                head.next.prev = head;
+        while (current.next != null) {
+            if (current.next.data == obj) {
+                
+                
+                rlt++;
             }
-            toDel.next = null;
-            toDel.prev = null;
-            rlt++;
         }
 
         return rlt;
@@ -188,21 +176,26 @@ public class DoublyLinkedList {
      * @param obj the item
      * @return true if successful, false if there is no
      */
-//    public boolean addSecondLast(int obj) {
-//        
-//        DoublyLinkedListNode current = head;
-//        DoublyLinkedListNode data = new DoublyLinkedListNode(obj);
-//        
-//        while(current.next != null){
-//            current = current.next;
-//            if(current.next == null){
-//                
-//                current.data = data.data;
-//            }
-//        }
-//        
-//        return false;
-//    }
+    public boolean addSecondLast(int obj) {
+
+        DoublyLinkedListNode current = head;
+        DoublyLinkedListNode newNode = new DoublyLinkedListNode();
+        DoublyLinkedListNode newDataNode = new DoublyLinkedListNode(obj);
+
+        while (current.next != null) {
+            current = current.next;
+            if (current.next == null) {
+                current.next = newNode;
+                newNode.data = current.data;
+                current.data = newDataNode.data;
+
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     @Override
     public String toString() {
         String rlt = "";
